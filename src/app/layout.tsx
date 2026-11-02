@@ -24,7 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
+    // Gyazo や ColorZilla などの拡張機能が html / body に属性を足すため、この2つだけ属性の違いを警告しない
+    <html lang="ja" suppressHydrationWarning>
       <head>
         <link
           rel="preload"
@@ -41,7 +42,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body id="top">
+      <body id="top" suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           本文へスキップ
         </a>
