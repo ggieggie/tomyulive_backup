@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
+import { Icon } from "@/components/Icon";
 import { LineButton } from "@/components/LineButton";
 import { Phrases } from "@/components/Phrases";
 export const metadata: Metadata = {
@@ -13,10 +15,23 @@ export default function ManualPage() {
         label="マニュアル・手続き"
         eyebrow="Manual"
         title="マニュアル・|手続きのご案内"
-        subtitle="所属ライバーの方へ。|必要なご案内は、担当マネージャーからお送りします。"
+        subtitle="所属ライバーの方へ。|必要なご案内は、|担当マネージャーからお送りします。"
       />
       <section className="section">
-        <div className="narrow">
+        <div className="narrow resource-list">
+          <Link href="/column/348/" className="resource-link">
+            <div>
+              <h2>
+                <Phrases text="ライバーの確定申告・|請求書の発行手続き" />
+              </h2>
+              <p>
+                マネーフォワードでの開業手続きと、毎月の請求書の作り方を解説しています。
+              </p>
+            </div>
+            <span className="resource-arrow">
+              <Icon name="arrow" />
+            </span>
+          </Link>
           <div className="info-card">
             <h2>
               <Phrases text="担当マネージャーに|ご相談ください" />
