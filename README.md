@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# tomyu-live
 
-## Getting Started
+Pocochaに特化したライバー事務所「トミュライブ（tomyu-live）」のリニューアルサイトです。
 
-First, run the development server:
+## 起動
 
-```bash
+```sh
+cd /Users/veggie/Desktop/tomyulive
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 で確認できます。依存関係がインストール済みなら `npm install` は不要です。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 本番用ビルド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run build
+npm run start
+```
 
-## Learn More
+日本語は Zen Kaku Gothic New、英字のアクセントは Barlow Condensed を同梱して使用します。ビルド時・閲覧時ともに外部のフォント配信へのアクセスは不要です。ライセンスは `public/fonts/` に同梱しています。
 
-To learn more about Next.js, take a look at the following resources:
+## 編集する場所
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/app/page.tsx`: トップページ
+- `src/app/globals.css`: カラー、余白、文字、レスポンシブ表示
+- `src/app/refinements.css`: 初案に重ねたフォント・マーカー・紙ラベルの調整
+- `src/lib/site.ts`: 公式LINEのURL、FAQ、サポート内容、所属フロー
+- `src/components/`: ヘッダー、フッター、CTAなどの共通部品
+- `src/app/`: 事務所紹介・特典・募集・FAQなど、各下層ページ
+- `public/images/streamer-hero.png`: 新規生成した配信イメージ写真
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 引き継ぎ
 
-## Deploy on Vercel
+引き継ぎ時点のソースと設定は `/Users/veggie/Desktop/tomyulive_handover_backup/before-codex-20261016.tar.gz` に保管しています。元サイトのバックアップ `/Users/veggie/Desktop/tomyulive_backup` は変更していません。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+公式LINEのURLと、報酬還元・マネージャー制・所属フローの情報は元サイトのバックアップを参照しました。現行の制度や規約を更新する場合は、運営側で確認した内容を反映してください。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+お問い合わせは元サイトで使われていた公式LINEへ誘導します。送信されないダミーフォームと未接続のログイン画面は、実際に利用できる案内に置き換えています。会員認証、独自の問い合わせ受付サーバーは実装していません。
+
+写真は実在する所属ライバーの紹介ではなく、AI生成の配信イメージです。使用した組み込みimagegenのプロンプトは `docs/image-prompt.txt` に記録しています。
