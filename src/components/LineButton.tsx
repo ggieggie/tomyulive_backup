@@ -14,11 +14,12 @@ export function LineButton({
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span className="line-symbol" aria-hidden="true">
+      <span className="line-mark" aria-hidden="true">
         LINE
       </span>
       <span>{children}</span>
       <Icon name="arrow" />
+      <span className="visually-hidden">（新しいタブで開きます）</span>
     </a>
   );
 }

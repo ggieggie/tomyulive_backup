@@ -24,12 +24,13 @@ npm run start
 ## 編集する場所
 
 - `src/app/page.tsx`: トップページ
-- `src/app/globals.css`: カラー、余白、文字、レスポンシブ表示
-- `src/app/refinements.css`: 初案に重ねたフォント・マーカー・紙ラベルの調整
-- `src/lib/site.ts`: 公式LINEのURL、FAQ、サポート内容、所属フロー
+- `src/app/globals.css`: フォント、カラー、余白、文字、レスポンシブ表示（スタイルはこの1ファイルにまとめています）
+- `src/lib/site.ts`: 公式LINEのURL、黄色い帯の要点、FAQ、サポート内容、所属フロー
 - `src/components/`: ヘッダー、フッター、CTAなどの共通部品
 - `src/app/`: 事務所紹介・特典・募集・FAQなど、各下層ページ
 - `public/images/streamer-hero.png`: 新規生成した配信イメージ写真
+
+見出しなどの文言で、`\n` は必ず改行する位置、`|` は幅が足りないときだけ改行してよい位置です（`src/components/Phrases.tsx`）。スマホで単語の途中で折り返さないよう、文言を変えるときは文節の区切りに `|` を入れてください。
 
 ## 引き継ぎ
 

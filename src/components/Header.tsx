@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Brand } from "./Brand";
+import { Icon } from "./Icon";
 import { LineButton } from "./LineButton";
 const nav = [
   ["/about", "トミュライブとは"],
@@ -36,9 +37,9 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <LineButton className="header-cta">ライバー募集中</LineButton>
+        <LineButton className="is-small header-cta">ライバー募集中</LineButton>
         <button
-          className={`menu-toggle ${open ? "is-open" : ""}`}
+          className="menu-toggle"
           onClick={() => setOpen(!open)}
           aria-label={open ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={open}
@@ -54,15 +55,19 @@ export function Header() {
           className="mobile-nav"
           aria-label="モバイルナビゲーション"
         >
-          {nav.map(([href, label]) => (
-            <Link key={href} href={href} onClick={() => setOpen(false)}>
-              {label}
-              <span aria-hidden="true">↗</span>
-            </Link>
-          ))}
-          <Link href="/recruit" onClick={() => setOpen(false)}>
-            ライバー募集について<span aria-hidden="true">↗</span>
-          </Link>
+          {[...nav, ["/recruit", "ライバー募集について"]].map(
+            ([href, label]) => (
+              <Link
+                key={href}
+                href={href}
+                aria-current={pathname === href ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {label}
+                <Icon name="arrow" />
+              </Link>
+            ),
+          )}
           <LineButton />
         </nav>
       )}

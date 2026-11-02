@@ -26,6 +26,12 @@ export const faqs = [
     a: "活動状況や達成条件によって適用内容が異なります。対象条件・金額・支給時期など、最新の内容を公式LINEでご案内します。",
   },
 ];
+export const facts = [
+  { value: "100", unit: "%", label: "ライバー報酬の|還元率", mark: true },
+  { value: "0", unit: "円", label: "初期費用・|契約料" },
+  { value: "Pococha", label: "に特化した|ライバー事務所" },
+  { value: "LINE", label: "で、気軽に|相談できる" },
+];
 export const supports = [
   {
     icon: "chat",
@@ -37,7 +43,7 @@ export const supports = [
   },
   {
     icon: "spark",
-    title: "Pocochaに特化した\n伸ばし方を、一緒に。",
+    title: "Pocochaに特化した\n伸ばし方を、|一緒に。",
     description:
       "アプリの仕組みを踏まえた配信戦略で、次の一歩を具体的に。自分らしく成長していこう。",
     color: "purple",
@@ -45,7 +51,7 @@ export const supports = [
   },
   {
     icon: "gift",
-    title: "挑戦を後押しする\nボーナス・特典。",
+    title: "挑戦を後押しする\nボーナス・|特典。",
     description:
       "ランクアップや移籍など、挑戦に合わせた制度をご用意。適用条件はLINEでご案内します。",
     color: "yellow",
@@ -54,22 +60,22 @@ export const supports = [
 ];
 export const steps = [
   {
-    title: "まずはLINEで友だち追加",
+    title: "まずはLINEで|友だち追加",
     description:
       "公式LINEからライバー診断を申し込み。気になることだけのご相談もどうぞ。",
   },
   {
-    title: "チャットでお話ししよう",
+    title: "チャットで|お話ししよう",
     description:
       "事務所のことや報酬、サポートについてご説明。希望する方は電話での面談もできます。",
   },
   {
-    title: "納得してから、所属手続き",
+    title: "納得してから、|所属手続き",
     description:
       "活動内容や条件を確認し、ご納得いただいてからお手続きへ進みます。",
   },
   {
-    title: "あなたらしい配信、スタート！",
+    title: "あなたらしい配信、|スタート！",
     description:
       "担当マネージャーと配信スタイルや目標を相談。準備を整えて、初配信を迎えましょう。",
   },

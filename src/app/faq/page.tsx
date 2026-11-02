@@ -7,11 +7,13 @@ export default function FaqPage() {
   return (
     <>
       <PageHeader
-        title="気になること、聞いてみよう。"
-        subtitle="配信や所属について、よくいただくご質問にお答えします。"
+        label="よくある質問"
+        eyebrow="FAQ"
+        title={"気になること、\n聞いてみよう。"}
+        subtitle="配信や所属について、|よくいただくご質問にお答えします。"
       />
       <section className="section">
-        <div className="prose-content">
+        <div className="narrow">
           <FaqList />
         </div>
       </section>

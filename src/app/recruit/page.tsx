@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { JoinSection } from "@/components/JoinSection";
-import { LineButton } from "@/components/LineButton";
+import { Phrases } from "@/components/Phrases";
 export const metadata: Metadata = { title: "ライバー募集" };
 const rows = [
   ["配信アプリ", "Pococha（ポコチャ）"],
@@ -19,29 +19,34 @@ export default function RecruitPage() {
   return (
     <>
       <PageHeader
-        title="あなたの「好き」を、ライブに。"
-        subtitle="おしゃべりも、歌も、あなたらしさも。トミュライブで、次の一歩を。"
+        label="ライバー募集"
+        eyebrow="Recruit"
+        title={"あなたの|「好き」を、\nライブに。"}
+        subtitle="おしゃべりも、歌も、あなたらしさも。|トミュライブで、次の一歩を。"
       />
       <section className="section">
-        <div className="prose-content">
-          <span className="section-sign">Your story starts here.</span>
-          <h2>ライバーという、新しい選択肢。</h2>
-          <p>
-            「ライブ配信に興味がある」「自分の可能性を広げたい」。その気持ちを、まずは聞かせてください。所属のことも、活動のことも、LINEでご案内します。
-          </p>
-          <dl className="recruit-table">
-            {rows.map(([k, v]) => (
-              <div key={k}>
-                <dt>{k}</dt>
-                <dd>{v}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="section-note">
-            ※所属条件・アプリの利用条件・各種制度の適用条件は、ご相談時にご確認ください。他事務所に所属中の方は、現在のご契約状況をお知らせください。
-          </p>
-          <div className="center-action">
-            <LineButton>LINEで応募について相談する</LineButton>
+        <div className="wrap recruit">
+          <div className="recruit-intro">
+            <p className="eyebrow">Your story starts here</p>
+            <h2 className="section-title">
+              <Phrases text={"ライバーという、\n新しい選択肢。"} />
+            </h2>
+            <p className="lead">
+              「ライブ配信に興味がある」「自分の可能性を広げたい」。その気持ちを、まずは聞かせてください。所属のことも、活動のことも、LINEでご案内します。
+            </p>
+          </div>
+          <div>
+            <dl className="spec">
+              {rows.map(([k, v]) => (
+                <div key={k}>
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="note spec-note">
+              ※所属条件・アプリの利用条件・各種制度の適用条件は、ご相談時にご確認ください。他事務所に所属中の方は、現在のご契約状況をお知らせください。
+            </p>
           </div>
         </div>
       </section>
