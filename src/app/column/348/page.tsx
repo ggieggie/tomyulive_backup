@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "この記事は、tomyu-live事務所所属のライバー様向けに公開しています。",
 };
-// 旧サイト（WordPress）の記事本文を変換したもの。文章は旧サイトと同一
+// 旧サイト（WordPress）の記事本文を変換したもの。変えたのは取引先名の記入例とアフィリエイトのリンク先だけ
 const body = readFileSync(
   join(process.cwd(), "src/content/column-348.html"),
   "utf8",
