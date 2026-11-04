@@ -76,3 +76,15 @@
   - `/talk/`: スライド5枚に「めちゃのび！」「© 株式会社めちゃのび」。
   - `/contract/`: 契約書の画面に「株式会社めちゃのび」「代表取締役 小池 響葵」、めちゃのびの印影、mechanovi.co.jp のメールアドレス。
   - `/rental/`: 申請の見本に、実在の担当者の名前・メールアドレス・電話番号。
+
+
+## 公開の準備（静的書き出しと GitHub Actions、2026-11-04）
+
+- `next.config.ts` に `output: "export"` と `images: { unoptimized: true }` を追加し、`npm run build` で `out/` に静的な HTML を書き出すようにした（全24ページ＋404.html、約131MB）。
+- トップの写真は 2.1MB の PNG を、幅960px・212KB の JPEG（`public/images/streamer-hero.jpg`）にして表示している。
+- 旧サイトの画像（`wp-content/uploads/`、460枚・84MB）を `public/wp-content/uploads/` に残し、旧サイトの画像の URL も開けるようにした。
+- `out/` を静的に配信した状態で次を確認した。
+  - 全22ページが 200。`/` なしの URL は `/` 付きへ転送される。
+  - サイト内の全ページと、ページが読み込む111ファイル（CSS・JS・画像・フォント）に欠けがない。
+  - メニューと FAQ の開閉が動く。移したページの本文が全ページで一致する。
+- `.github/workflows/deploy.yml` を追加した。`main` への push で、ビルドしてから GitHub Pages に公開する。プルリクエストではビルドだけを行う。使っている Actions は確認時点の最新版（checkout v7、setup-node v7、upload-pages-artifact v5、deploy-pages v5）。

@@ -57,7 +57,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="hero-arch">
               <Image
-                src="/images/streamer-hero.png"
+                src="/images/streamer-hero.jpg"
                 alt="ヘッドホンをつけて笑顔で配信する女性のイメージ"
                 fill
                 sizes="(max-width: 960px) 86vw, 460px"

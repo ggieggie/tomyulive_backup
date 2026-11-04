@@ -16,8 +16,18 @@ http://localhost:3000 で確認できます。依存関係がインストール�
 
 ```sh
 npm run build
-npm run start
+python3 -m http.server 3200 --directory out
 ```
+
+ビルドすると、公開用の静的な HTML が `out/` に書き出されます（`next.config.ts` の `output: "export"`）。この設定では `npm run start` は使えないため、`out/` をそのまま配信して確認します（http://localhost:3200）。
+
+## 公開
+
+`main` ブランチに入ると、GitHub Actions（`.github/workflows/deploy.yml`）がビルドして、`out/` を GitHub Pages（https://tomyulive.com）に公開します。プルリクエストでは、ビルドが通るかだけを確かめます（公開はしません）。
+
+GitHub のリポジトリの Settings → Pages → Build and deployment → Source は「GitHub Actions」にしておく必要があります。「Deploy from a branch」のままだと、ビルド前のソースがそのまま公開されてしまいます。
+
+旧サイトの画像の URL（`/wp-content/uploads/…`）は、外部から使われていても切れないよう `public/wp-content/uploads/` に残しています。
 
 日本語は Zen Kaku Gothic New、英字のアクセントは Barlow Condensed を同梱して使用します。ビルド時・閲覧時ともに外部のフォント配信へのアクセスは不要です。ライセンスは `public/fonts/` に同梱しています。
 
@@ -28,7 +38,7 @@ npm run start
 - `src/lib/site.ts`: 公式LINEのURL、黄色い帯の要点、FAQ、サポート内容、所属フロー
 - `src/components/`: ヘッダー、フッター、CTAなどの共通部品
 - `src/app/`: 事務所紹介・特典・募集・FAQなど、各下層ページ
-- `public/images/streamer-hero.png`: 新規生成した配信イメージ写真
+- `public/images/streamer-hero.png`: 新規生成した配信イメージ写真の元画像。サイトでは軽くした `streamer-hero.jpg`（幅960px）を表示
 - `src/content/legacy/`: 旧サイト（WordPress）から移した10ページ。タイトルや公開日などは `index.ts`、本文は `<slug>.html`、目次は `<slug>.toc.json`、画像はページと同じ URL の `public/` 以下（例: `public/talk/`）
 
 ## 旧サイトから移したページ
