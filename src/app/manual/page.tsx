@@ -32,6 +32,19 @@ export default function ManualPage() {
               <Icon name="arrow" />
             </span>
           </Link>
+          <Link href="/contract/" className="resource-link">
+            <div>
+              <h2>
+                <Phrases text="電子契約書の|締結方法" />
+              </h2>
+              <p>
+                マネーフォワード クラウド契約で届いた契約書を、オンラインで締結する手順です。
+              </p>
+            </div>
+            <span className="resource-arrow">
+              <Icon name="arrow" />
+            </span>
+          </Link>
           <div className="info-card">
             <h2>
               <Phrases text="担当マネージャーに|ご相談ください" />

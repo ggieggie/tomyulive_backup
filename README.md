@@ -29,9 +29,28 @@ npm run start
 - `src/components/`: ヘッダー、フッター、CTAなどの共通部品
 - `src/app/`: 事務所紹介・特典・募集・FAQなど、各下層ページ
 - `public/images/streamer-hero.png`: 新規生成した配信イメージ写真
-- `src/app/column/348/page.tsx`: 旧サイトから移した記事「ライバーの確定申告・請求書の発行手続き」（URL は旧サイトと同じ `/column/348/`）。本文は `src/content/column-348.html`、画像は `public/column/348/`
+- `src/content/legacy/`: 旧サイト（WordPress）から移した10ページ。タイトルや公開日などは `index.ts`、本文は `<slug>.html`、目次は `<slug>.toc.json`、画像はページと同じ URL の `public/` 以下（例: `public/talk/`）
 
-旧サイトと同じ URL を保つため、URL の末尾は `/` 付きにそろえています（`next.config.ts` の `trailingSlash: true`）。
+## 旧サイトから移したページ
+
+旧サイトの URL のまま表示しています。URL の末尾は `/` 付きにそろえています（`next.config.ts` の `trailingSlash: true`）。
+
+| URL | ページ | 種類 |
+|---|---|---|
+| `/talk/` | ライバー様ご提案資料 | スタッフ用（検索エンジンに出さない） |
+| `/before-streaming/` | 所属済み、初配信前のライバー面談 | スタッフ用（検索エンジンに出さない） |
+| `/rental/` | 端末貸与手続き | スタッフ用（検索エンジンに出さない） |
+| `/manual-list/` | 電話対応マニュアル総括 | スタッフ用（検索エンジンに出さない） |
+| `/contract/` | 電子契約書の締結方法 | 所属ライバー向け（検索エンジンに出さない） |
+| `/column/348/` ほか4本 | コラム | 一般公開（一覧は `/category/column/`） |
+
+スタッフ用のページは、旧サイトと同じくメニューからはリンクしていません。
+
+本文は `scripts/convert_legacy.py` で旧サイトのバックアップから変換したものです。変換の際に、会社名「株式会社めちゃのび」（旧サイトでは自動の置き換えで「株式会社tomyu-live」と表示）を「トミュタ合同会社」に直し、マネーフォワードへのアフィリエイトのリンクを公式サイトへの直接のリンクにしています。作り直すときは次のように実行します（本文と画像が上書きされます）。
+
+```sh
+python3 -I scripts/convert_legacy.py /Users/veggie/Desktop/tomyulive_backup . /tmp/legacy-report.json
+```
 
 見出しなどの文言で、`\n` は必ず改行する位置、`|` は幅が足りないときだけ改行してよい位置です（`src/components/Phrases.tsx`）。スマホで単語の途中で折り返さないよう、文言を変えるときは文節の区切りに `|` を入れてください。
 

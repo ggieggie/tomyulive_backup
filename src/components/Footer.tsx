@@ -17,6 +17,7 @@ export function Footer() {
             <Link href="/flow">はじめ方</Link>
             <Link href="/faq">よくある質問</Link>
             <Link href="/recruit">ライバー募集</Link>
+            <Link href="/category/column/">コラム</Link>
             <Link href="/contact">お問い合わせ</Link>
             <Link href="/members">所属ライバーの方へ</Link>
           </nav>

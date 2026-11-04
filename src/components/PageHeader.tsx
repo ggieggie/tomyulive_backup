@@ -2,11 +2,13 @@ import Link from "next/link";
 import { Phrases } from "./Phrases";
 export function PageHeader({
   label,
+  parent,
   eyebrow,
   title,
   subtitle,
 }: {
   label: string;
+  parent?: { href: string; label: string };
   eyebrow: string;
   title: string;
   subtitle?: string;
@@ -16,6 +18,12 @@ export function PageHeader({
       <div className="wrap">
         <nav className="breadcrumbs" aria-label="現在地">
           <Link href="/">ホーム</Link>
+          {parent && (
+            <>
+              <span aria-hidden="true">/</span>
+              <Link href={parent.href}>{parent.label}</Link>
+            </>
+          )}
           <span aria-hidden="true">/</span>
           <span aria-current="page">{label}</span>
         </nav>
